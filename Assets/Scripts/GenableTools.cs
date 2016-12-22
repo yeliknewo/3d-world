@@ -10,8 +10,8 @@ public class GenableTools : MonoBehaviour {
 		return Hair2.Make (shrinkRate, curveRate, sides, startNode, startDirection, startSize, debug);
 	}
 
-	public static GenableMesh MakeSphere(float radius, Vector3 position, int sides, bool debug) {
-		return Sphere.Make (radius, position, sides, debug);
+	public static GenableMesh MakeSphere(float radius, Vector3 position, int sides, int halfIterations, bool debug) {
+		return Sphere.Make (radius, position, sides, halfIterations, debug);
 	}
 
 	public static GenableMesh MakeHose(List<Vector3> nodes, List<float> nodeSizes, int sides, bool debug) {

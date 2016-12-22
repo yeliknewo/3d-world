@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\GenableHook.cs" />
      <Compile Include="Assets\Scripts\GenableMesh.cs" />
      <Compile Include="Assets\Scripts\GenableTools.cs" />
+     <Compile Include="Assets\Scripts\Sphere1.cs" />
      <Compile Include="Assets\Scripts\Tools\Hair.cs" />
      <Compile Include="Assets\Scripts\Tools\Hair2.cs" />
      <Compile Include="Assets\Scripts\Tools\Hose.cs" />
@@ -59,6 +60,7 @@
      <Compile Include="Assets\Scripts\Tree4.cs" />
      <Compile Include="Assets\Scripts\Tree5.cs" />
      <Compile Include="Assets\Scripts\Tree6.cs" />
+     <Compile Include="Assets\Scripts\Tree7.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
