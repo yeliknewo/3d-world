@@ -35,6 +35,17 @@ public class GenableMesh
 		}
 	}
 
+	private Material _material;
+
+	public Material material {
+		get {
+			return _material;
+		}
+		set {
+			this._material = value;
+		}
+	}
+
 	public GenableMesh () {
 
 	}

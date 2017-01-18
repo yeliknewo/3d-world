@@ -37,3 +37,4 @@ C:\Users\Kiley Owen\Desktop\Unity\3DWorld\Temp\bin\Debug\UnityEngine.Analytics.x
 C:\Users\Kiley Owen\Desktop\Unity\3DWorld\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
 C:\Users\Kiley Owen\Desktop\Unity\3DWorld\obj\Debug\Assembly-CSharp-Editor.dll
 C:\Users\Kiley Owen\Desktop\Unity\3DWorld\obj\Debug\Assembly-CSharp-Editor.pdb
+C:\Users\Kiley Owen\Desktop\Unity\3DWorld\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

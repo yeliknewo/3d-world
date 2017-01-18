@@ -6,6 +6,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(MeshFilter))]
 public abstract class Genable : MonoBehaviour {
 	public abstract void Generate ();
+	public abstract void RandomizeSeed ();
 
 	protected MeshFilter meshFilter {
 		get {
@@ -13,7 +14,7 @@ public abstract class Genable : MonoBehaviour {
 		}
 	}
 
-	protected Mesh mesh {
+	public Mesh mesh {
 		get {
 			return this.meshFilter.sharedMesh;
 		}
@@ -35,6 +36,12 @@ public abstract class Genable : MonoBehaviour {
 	}
 
 	protected void AddGenableMesh(GenableMesh genableMesh) {
+		this.meshCount += 1;
+		this.mesh.subMeshCount = this.meshCount;
+		Material[] materials = new Material[this.meshRenderer.sharedMaterials.Length + 1];
+		this.meshRenderer.sharedMaterials.CopyTo (materials, 0);
+		materials [materials.Length - 1] = genableMesh.material;
+		this.meshRenderer.sharedMaterials = materials;
 		int startingVertexCount = this.mesh.vertexCount;
 		int startingUVCount = this.mesh.uv.Length;
 
@@ -50,18 +57,23 @@ public abstract class Genable : MonoBehaviour {
 		this.mesh.SetUVs (0, newUVs);
 
 		List<int> newTriangles = new List<int> ();
-		newTriangles.AddRange (this.mesh.triangles);
+
 		foreach (int oldTriangle in genableMesh.triangles) {
 			newTriangles.Add (oldTriangle + startingVertexCount);
 		}
-		this.mesh.SetTriangles (newTriangles, 0);
+		this.mesh.SetTriangles (newTriangles, this.meshCount - 1);
 
 		if (this.meshCollider != null) {
 			this.meshCollider.sharedMesh = this.mesh;
 		}
 	}
 
-	protected void ClearMesh() {
-		this.mesh = new Mesh ();
+	public string assetPath;
+	private int meshCount;
+
+	public void ClearMesh() {
+		assetPath = "Assets/GenableMesh/_" + this.gameObject.name + ".asset";
+		this.meshCount = 0;
+		this.meshRenderer.sharedMaterials = new Material[0];
 	}
 }

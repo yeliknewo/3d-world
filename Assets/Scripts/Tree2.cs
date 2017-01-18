@@ -11,15 +11,22 @@ public class Tree2 : Genable {
 	public Vector3 startDirection;
 	public float startSize;
 	public bool debug;
+	public Material trunkMaterial;
+	public Material branchMaterial;
 
 	void Start () {
 		this.Generate ();
 	}
 
+	public override void RandomizeSeed ()
+	{
+		this.seed = Random.Range (int.MinValue, int.MaxValue);
+	}
+
 	public override void Generate ()
 	{
 		this.ClearMesh ();
-		this.AddGenableMesh (GenableTools.MakeHair (shrinkRate, curveRate, sides, startNode, startDirection, startSize, this.debug));
-		this.AddGenableMesh (GenableTools.MakeHair (shrinkRate, curveRate, sides, startNode + Vector3.forward * 10, startDirection, startSize, this.debug));
+		this.AddGenableMesh (GenableTools.MakeHair (this.trunkMaterial, this.shrinkRate, this.curveRate, this.sides, this.startNode, this.startDirection, this.startSize, this.debug));
+		this.AddGenableMesh (GenableTools.MakeHair (this.branchMaterial, this.shrinkRate, this.curveRate, this.sides, this.startNode + Vector3.forward * 10, this.startDirection, this.startSize, this.debug));
 	}
 }

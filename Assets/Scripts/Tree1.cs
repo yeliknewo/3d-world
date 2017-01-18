@@ -15,6 +15,11 @@ public class Tree1 : Genable {
 		this.Generate ();
 	}
 
+	public override void RandomizeSeed ()
+	{
+		this.seed = Random.Range (int.MinValue, int.MaxValue);
+	}
+
 	public override void Generate ()
 	{
 		Random.InitState (this.seed);

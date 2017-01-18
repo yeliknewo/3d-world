@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 
 public class Hair {
-	public static GenableMesh Make(float shrinkRate, Vector3 curveRate, int sides, Vector3 startNode, Vector3 startDirection, float startSize, bool debug) {
+	public static GenableMesh Make(Material material, float shrinkRate, Vector3 curveRate, int sides, Vector3 startNode, Vector3 startDirection, float startSize, bool debug) {
 		GenableMesh mesh = new GenableMesh ();
 
+		mesh.material = material;
 		List<Vector3> nodes = new List<Vector3> ();
 		List<float> nodeSizes = new List<float> ();
 

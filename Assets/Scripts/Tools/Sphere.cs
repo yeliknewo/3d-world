@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 public class Sphere {
-	public static GenableMesh Make(float radius, Vector3 position, int sides, int halfIterations, bool debug) {
+	public static GenableMesh Make(Material material, float radius, Vector3 position, int sides, int halfIterations, Vector3 uvDivs, bool debug) {
 		List<Vector3> nodes = new List<Vector3> ();
 		List<float> nodeSizes = new List<float> ();
 
@@ -16,7 +16,7 @@ public class Sphere {
 			nodeSizes.Add (nodeSize);
 		}
 
-		return GenableTools.MakeHose (nodes, nodeSizes, sides, debug);
+		return GenableTools.MakeHose (material, nodes, nodeSizes, sides, uvDivs, debug);
 	}
 }
 

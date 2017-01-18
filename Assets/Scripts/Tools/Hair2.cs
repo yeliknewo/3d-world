@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class Hair2
 {
-	public static GenableMesh Make(float shrinkRate, Vector3 curveRate, int sides, Vector3 startNode, Vector3 startDirection, float startSize, bool debug) {
+	public static GenableMesh Make(Material material, float shrinkRate, Vector3 curveRate, int sides, Vector3 startNode, Vector3 startDirection, float startSize, Vector3 uvDivs, bool debug) {
 		List<Vector3> nodes = new List<Vector3> ();
 		List<float> nodeSizes = new List<float> ();
 
@@ -21,6 +21,6 @@ public class Hair2
 			}
 		}
 
-		return Hose.Make (nodes, nodeSizes, sides, debug);
+		return Hose.Make (material, nodes, nodeSizes, sides, uvDivs, debug);
 	}
 }

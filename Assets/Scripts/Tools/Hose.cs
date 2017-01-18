@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 
 public class Hose {
-	public static GenableMesh Make(List<Vector3> nodes, List<float> nodeSizes, int sides, bool debug) {
+	public static GenableMesh Make(Material material, List<Vector3> nodes, List<float> nodeSizes, int sides, Vector3 uvDivs, bool debug) {
 		GenableMesh mesh = new GenableMesh ();
+		mesh.material = material;
 
 		if (nodes.Count < 2) {
 			return null;
@@ -36,7 +37,7 @@ public class Hose {
 				}
 				mesh.nodes.Add (currentNode);
 				mesh.vertices.Add (vertex);
-				mesh.uvs.Add (new Vector2 (vertex.x + vertex.z, vertex.y));
+				mesh.uvs.Add (new Vector2 ((vertex.x / uvDivs.x) % (vertex.z / uvDivs.z), vertex.y / uvDivs.y));
 			}
 		}
 
